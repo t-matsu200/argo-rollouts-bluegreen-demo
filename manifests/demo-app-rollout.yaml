@@ -2,10 +2,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: demo-app-rollout
-  labels:
-    app: demo-app
 spec:
   replicas: 2
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: demo-app
@@ -25,5 +24,5 @@ spec:
       activeService: demo-app
       previewService: demo-app-preview
       previewReplicaCount: 1
-      autoPromotionEnabled: true
+      autoPromotionEnabled: false
       scaleDownDelaySeconds: 3600
