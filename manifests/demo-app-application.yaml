@@ -19,7 +19,4 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ApplyOutOfSyncOnly=true
-    syncWave:
-      automated: 
-        interval: 5m
-        prune: true
+    automated: {}
