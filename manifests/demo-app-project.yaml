@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: demo-app-project
+  namespace: argocd
+spec:
+  description: AppProject for demo-app
+  destinations:
+  - namespace: demo-app
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - https://github.com/t-matsu200/argo-rollouts-bluegreen-demo.git
+  source:
+    path: manifests
+  clusterResourceWhitelist:
+  - group: ""
+    kind: Namespace
+  namespaceResourceBlacklist:
+  - group: ""
+    kind: ResourceQuota
+  - group: ""
+    kind: LimitRange
+  - group: ""
+    kind: NetworkPolicy
+  namespaceResourceWhitelist:
+  - group: "apps"
+    kind: Deployment
+  - group: "apps"
+    kind: StatefulSet
+  - group: ""
+    kind: Ingress
+  - group: ""
+    kind: Service

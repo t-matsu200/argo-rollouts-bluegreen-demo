@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: demo-app-rollout
+  labels:
+    app: demo-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+      - name: demo-app
+        image: nginx:1.22.1-alpine3.17
+        ports:
+        - containerPort: 80
+      terminationGracePeriodSeconds: 30
+  strategy:
+    blueGreen:
+      activeService: demo-app
+      previewService: demo-app-preview
+      autoPromotionEnabled: true
+      scaleDownDelaySeconds: 3600
+      scaleDownDelayRevisionLimit: 2
