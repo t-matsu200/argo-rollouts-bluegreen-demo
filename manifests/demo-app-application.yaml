@@ -16,3 +16,10 @@ spec:
       prune: true
       selfHeal: true
       allowEmpty: true
+    syncOptions:
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
+    syncWave:
+      automated: 
+        interval: 5m
+        prune: true
