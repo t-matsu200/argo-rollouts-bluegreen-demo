@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: https://github.com/t-matsu200/argo-rollouts-bluegreen-demo.git
     path: manifests
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc:443
     namespace: demo-app

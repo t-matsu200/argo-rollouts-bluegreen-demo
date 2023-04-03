@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: httpd:alpine3.17
+        image: nginx:1.22.1-alpine3.17
         ports:
         - containerPort: 80
       terminationGracePeriodSeconds: 30
@@ -24,5 +24,6 @@ spec:
     blueGreen:
       activeService: demo-app
       previewService: demo-app-preview
+      previewReplicaCount: 1
       autoPromotionEnabled: true
       scaleDownDelaySeconds: 3600
