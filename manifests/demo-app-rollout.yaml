@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: nginx:1.22.1-alpine3.17
+        image: httpd:alpine3.17
         ports:
         - containerPort: 80
       terminationGracePeriodSeconds: 30
