@@ -17,5 +17,4 @@ spec:
           service:
             name: demo-app
             port:
-              name: http
               number: 80

@@ -19,5 +19,4 @@ spec:
           service:
             name: demo-app-preview
             port:
-              name: http
               number: 80
