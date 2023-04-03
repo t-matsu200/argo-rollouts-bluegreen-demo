@@ -26,4 +26,3 @@ spec:
       previewService: demo-app-preview
       autoPromotionEnabled: true
       scaleDownDelaySeconds: 3600
-      scaleDownDelayRevisionLimit: 2
